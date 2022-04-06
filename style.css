@@ -1,9 +1,8 @@
 html, body {
   margin: 0;
   padding: 0;
-}
-canvas {
-  display: block;
+
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 button {
@@ -12,11 +11,6 @@ button {
   border-style: solid;
   border-image: initial;
   border-radius: 2px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
 }
 
 button:hover {
@@ -33,4 +27,17 @@ select {
 select:hover {
   cursor: pointer;
   background-color: rgb(51, 51, 51, 0.05);
+}
+
+.cup-of-tea {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
+  height: 250px;
+  opacity: 0.65;
+}
+
+#main {
+  text-align: center;
 }

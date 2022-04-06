@@ -1,16 +1,26 @@
 <!DOCTYPE html><html lang="en">
   <head>
     <title>GaukeT | TeaTopics</title>
-    <script src="p5.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
-
     <meta name="description" content="GaukeT | TeaTopics">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="text/html; charset=utf-8" />
   </head>
-  <body>
-    <main>
-    </main>
+  <body onload="loadPage()">
+    <select onchange="selectLanguage()" name="lang" id="lang">
+      <option disabled selected value="default">Choose a language</option>
+      <option value="Dutch">Dutch</option>
+      <option value="English">English</option>
+    </select>
+    <div id="main"> 
+      <div id="img-div">
+        <img class="cup-of-tea" src="cup-of-tea.png" alt="cup-of-tea">
+      </div>
+      <div id="question-div">
+        <p id="question"></p>
+      </div>
+      <button id="start" onclick="start()">Start</button>
+    </div>
     <script src="questions-nl.js"></script>
     <script src="questions-en.js"></script>
     <script src="sketch.js"></script>

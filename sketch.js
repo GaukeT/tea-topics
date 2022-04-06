@@ -1,74 +1,41 @@
+let qu; 
 let lang;
-let stop;
-let isStopped = false;
-let choice = 0;
-let quest = ['Welcome at TeaTopics! Choose a language to start.'];
-let emptyState = 'Choose a language';
-let tea;
+let quest = [];
 
-function preload() {
-  tea = loadImage('cup-of-tea.png');
+window.onload = function init() {
+  document.getElementById('start').disabled = true;
+  lang = document.getElementById('lang');
+  
+  qu = document.getElementById('question');
+  qu.innerText = 'Welcome at TeaTopics! Choose a language to start.';
 }
 
-function setup() {
-  createCanvas(windowWidth, windowHeight);
-  frameRate(10);
-  
-  lang = createSelect();
-  lang.option(emptyState);
-  lang.disable(emptyState);
-  lang.selected(emptyState);
-  
-  lang.option('Dutch');
-  lang.option('English');
-  lang.changed(selectLang);
+function start() {
+  // TODO: animation of options in quest with random(false)
+
+  random(true);
 }
 
-function draw() {
-  background(255);
-  textFont('Verdana', 16);
-  textStyle(NORMAL);
-
-  if (!isStopped) {
-    choice = int(random(quest.length))
+function random(bold) {
+  let r = Math.floor(Math.random() * quest.length);
+  if (bold) {
+    qu.innerHTML = '<strong>' + quest[r] + '</strong>';
   } else {
-    if (lang.value() != emptyState) {
-      textSize(20);
-      textStyle(BOLD);
-    }
+    qu.innerHTML = quest[r];
   }
-    
-  textAlign(CENTER);
-  text(quest[choice], width/2, height/2 - 50);
-
-  tint(255, 55);
-  image(tea, width/2 - 115, height/2 - 300, 250, 250);
 }
 
-function stopMe() {
-  isStopped = !isStopped;
-}
-
-function selectLang() {
-  switch(lang.value()) {
-  case 'Dutch':
-    quest = questions_nl;
-    break;
-  case 'English':
-    quest = questions_en;
-    break;
-  default:
-    quest = quest;
-  }
-  
-  if (!stop) {
-    stop = createButton('Stop - Start');
-    stop.mousePressed(stopMe)
+function selectLanguage() {
+  switch(lang.value) {
+    case 'Dutch':
+      quest = questions_nl;
+      break;
+    case 'English':
+      quest = questions_en;
+      break;
+    default:
+      quest = quest;
   }
 
-  isStopped = false;
-}
-
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  document.getElementById('start').disabled = false;
 }
