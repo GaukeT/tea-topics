@@ -15,7 +15,6 @@ function setup() {
   frameRate(10);
   
   lang = createSelect();
-  lang.position(width - 150, 10);
   lang.option(emptyState);
   lang.disable(emptyState);
   lang.selected(emptyState);
@@ -29,7 +28,7 @@ function draw() {
   background(255);
   textFont('Verdana', 16);
   textStyle(NORMAL);
-  
+
   if (!isStopped) {
     choice = int(random(quest.length))
   } else {
@@ -64,7 +63,6 @@ function selectLang() {
   
   if (!stop) {
     stop = createButton('Stop - Start');
-    stop.center();
     stop.mousePressed(stopMe)
   }
 
@@ -73,8 +71,4 @@ function selectLang() {
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-  lang.position(width - 150, 10);
-  if (stop) {
-    stop.center();
-  }
 }
