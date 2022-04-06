@@ -1,0 +1,21 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+
+button {
+  background-color: white;
+  border-width: 1px;
+  border-style: solid;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+  border-image: initial;
+  border-radius: 2px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(51, 51, 51, 0.08);
+}
