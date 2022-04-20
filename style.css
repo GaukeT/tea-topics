@@ -14,7 +14,7 @@ button {
   margin-top: 15px;
 }
 
-button:hover {
+button:hover:not([disabled]) {
   cursor: pointer;
   background-color: rgb(51, 51, 51, 0.05);
 }
@@ -37,8 +37,8 @@ select:hover {
 .cup-of-tea {
   width: 250px;
   height: 250px;
-  margin-left: 9px;
-  opacity: 0.65;
+  margin-left: 10px;
+  opacity: 0.60;
 }
 
 .quest {
