@@ -25,14 +25,18 @@ export default class Quest {
             this.selectLanguage();
         });
     
+        this.audio = new Audio("effects/spin.mp3");
         // console.log(this);
     }
 
     start() {
         if (this.selectedQuestions === null) return;
+        this.audio.play();
         this.el.start.disabled = true;
 
-        let remainingSeconds = 5;
+        // time in miliseconds
+        let remainingSeconds = 4500;
+        let intervalRate = 125;
 
         this.interval = setInterval(() => {
             let r = Math.floor(Math.random() * this.selectedQuestions.length);
@@ -42,15 +46,20 @@ export default class Quest {
               this.el.quest.innerHTML = '<strong>' + this.selectedQuestions[r] + '</strong>';
               this.stop();
             }
-
-            remainingSeconds--;
-        }, 125);
+            remainingSeconds -= intervalRate;
+        }, intervalRate);
     }
 
     stop() {
         clearInterval(this.interval);
         this.interval = null;
         this.el.start.disabled = false;
+        this.stopAudio();
+    }
+
+    stopAudio() {
+        this.audio.pause();
+        this.audio.currentTime = 0;
     }
 
     selectLanguage() {
@@ -66,7 +75,7 @@ export default class Quest {
             console.log("whoops");
         }
 
-        if (this.selectedQuestions !== null) {
+        if (this.selectedQuestions !== null && !this.interval) {
             this.el.start.disabled = false;
         }
     }
