@@ -1,4 +1,4 @@
-questions_en = ["If you had all the time in the world, what would you do?",
+export const questions_en = ["If you had all the time in the world, what would you do?",
 "If you had to eat one dish all day, what would it be?",
 "If you could do it again this week, what would you do differently",
 "If you could travel through time, what time would you like to travel to?",

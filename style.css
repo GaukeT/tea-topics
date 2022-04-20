@@ -11,6 +11,7 @@ button {
   border-style: solid;
   border-image: initial;
   border-radius: 2px;
+  margin-top: 15px;
 }
 
 button:hover {
@@ -29,15 +30,17 @@ select:hover {
   background-color: rgb(51, 51, 51, 0.05);
 }
 
+.topics {
+  text-align: center;
+}
+
 .cup-of-tea {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
   width: 250px;
   height: 250px;
+  margin-left: 9px;
   opacity: 0.65;
 }
 
-#main {
-  text-align: center;
+.quest {
+  display: block;
 }
